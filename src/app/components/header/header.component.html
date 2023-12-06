@@ -1,10 +1,19 @@
 <header>
-    <nav>
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/catalogue">Catalogue</a></li>
-        <li><a href="/panier">Panier</a></li>
-      </ul>
-    </nav>
-  </header>
-  
+  <div class="logo-container">
+    <img src="path-to-your-logo.png" alt="Logo" class="logo">
+  </div>
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/catalogue">Catalogue</a></li>
+      <li><a href="/panier">Panier</a></li>
+      <li class="compte" (click)="toggleAccountMenu($event)">
+        <a href="javascript:void(0)">Compte</a>
+        <ul class="compte-menu" *ngIf="showAccountMenu">
+          <li><a href="/compte/connexion">Se connecter</a></li>
+          <li><a href="/compte/inscription">S'inscrire</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
