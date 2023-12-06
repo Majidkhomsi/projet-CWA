@@ -1,0 +1,10 @@
+<div class="commande-container">
+    <h2>Récapitulatif de la Commande</h2>
+    <div *ngFor="let article of commande.articles" class="article-commande">
+      <p>{{ article.nom }} (x{{ article.quantite }})</p>
+      <p>Total: {{ article.prix * article.quantite }}€</p>
+    </div>
+    <p>Total de la Commande: {{ commande.total }}€</p>
+    <!-- Ici, ajoutez des formulaires ou des informations supplémentaires pour finaliser la commande -->
+  </div>
+  

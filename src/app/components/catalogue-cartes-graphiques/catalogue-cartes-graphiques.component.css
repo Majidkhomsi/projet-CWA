@@ -1,0 +1,19 @@
+.catalogue {
+    text-align: center;
+  }
+  
+  .liste-cartes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .carte-item {
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+  }
+  
+  /* Ajoutez plus de styles selon vos préférences */
+  

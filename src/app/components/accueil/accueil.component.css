@@ -1,0 +1,15 @@
+.accueil-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .accueil-container h1 {
+    color: #0275d8;
+  }
+  
+  .produits-vedettes {
+    margin-top: 30px;
+  }
+  
+  /* Ajoutez plus de styles selon vos besoins */
+  

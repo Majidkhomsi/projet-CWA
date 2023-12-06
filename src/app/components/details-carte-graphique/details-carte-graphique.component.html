@@ -1,0 +1,8 @@
+<div *ngIf="carteGraphique" class="details-carte">
+    <h2>{{ carteGraphique.nom }}</h2>
+    <img [src]="carteGraphique.image" alt="{{ carteGraphique.nom }}">
+    <p>{{ carteGraphique.description }}</p>
+    <p>Prix: {{ carteGraphique.prix }}€</p>
+    <!-- Ajoutez d'autres détails ici -->
+  </div>
+  

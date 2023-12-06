@@ -1,0 +1,12 @@
+<div class="catalogue">
+    <h2>Catalogue des Cartes Graphiques</h2>
+    <div class="liste-cartes">
+      <div *ngFor="let carte of cartesGraphiques" class="carte-item">
+        <h3>{{ carte.nom }}</h3>
+        <p>{{ carte.description }}</p>
+        <p>Prix: {{ carte.prix }}€</p>
+        <!-- Ici, vous pouvez ajouter un élément img pour chaque carte -->
+      </div>
+    </div>
+  </div>
+  
