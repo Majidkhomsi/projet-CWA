@@ -9,6 +9,7 @@ import { AccueilComponent } from './components/accueil/accueil.component';
 import { DetailsCarteGraphiqueComponent } from './components/details-carte-graphique/details-carte-graphique.component';
 import { PanierComponent } from './components/panier/panier.component';
 import { CommandeComponent } from './components/commande/commande.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CommandeComponent } from './components/commande/commande.component';
     AccueilComponent,
     DetailsCarteGraphiqueComponent,
     PanierComponent,
-    CommandeComponent
+    CommandeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

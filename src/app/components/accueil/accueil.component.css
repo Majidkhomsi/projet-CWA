@@ -1,15 +1,137 @@
+/* Style de base pour la page */
 .accueil-container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .accueil-container h1 {
-    color: #0275d8;
-  }
-  
-  .produits-vedettes {
-    margin-top: 30px;
-  }
-  
-  /* Ajoutez plus de styles selon vos besoins */
-  
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Fond sombre pour un effet futuriste */
+  color: #f0f0f0; /* Texte clair pour contraste */
+  font-family: 'Arial', sans-serif; /* Police moderne */
+}
+/* Style pour la section de bienvenue avec une image en arrière-plan */
+.bienvenue-section {
+  background-image: url('../../../assets/images/GPUGal.jpg');
+  background-size: cover; /* Assure que l'image couvre entièrement la section */
+  background-position: center; /* Centre l'image dans la section */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  color: white; /* Assurez que le texte reste lisible */
+  padding: 90x 50px; /* Ajustez selon vos besoins */
+  border-radius: 10px; /* Bords arrondis pour un style élégant */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombre légère pour un effet de profondeur */
+}
+
+/* Assurez que le texte est lisible sur l'image d'arrière-plan */
+.bienvenue-section h2, .bienvenue-section p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Titres */
+.accueil-container h1, .accueil-container h2 {
+  color: #0275d8; /* Bleu électrique pour les titres */
+  margin-bottom: 20px;
+}
+
+/* Effet de survol pour les titres */
+.accueil-container h1:hover, .accueil-container h2:hover {
+  color: #ff4081; /* Changement de couleur au survol */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Définition, présentation, et nouveautés */
+.definition-carte-graphique, .presentation-site, .nouveautes-cartes-graphiques {
+  margin-bottom: 40px;
+}
+
+/* Style pour les produits vedettes */
+.produits-vedettes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.produit-vedette {
+  margin: 20px;
+  text-align: left;
+}
+
+/* Style pour les images des produits vedettes */
+.produit-vedette img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bords arrondis pour les images */
+}
+
+/* Effet de survol pour les produits vedettes */
+.produit-vedette:hover {
+  transform: scale(1.05); /* Agrandit légèrement au survol */
+  box-shadow: 0px 0px 15px 5px #0275d8; /* Ombre bleue lumineuse */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Animation de "fade-in" pour les sections */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.definition-carte-graphique, .presentation-site, .nouveautes-cartes-graphiques, .comparaison-cartes-graphiques {
+  animation: fadeIn 2s ease-in;
+}
+
+/* Style pour les boutons ou liens */
+.button-style {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button-style:hover {
+  background-color: #ff4081; /* Changement de couleur au survol */
+}
+
+/* Style pour les entrées de texte et les formulaires */
+input[type="text"], select, textarea {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 4px;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #0275d8; /* Ombre bleue au focus */
+}
+
+/* Style pour la section de comparaison */
+.comparaison-cartes-graphiques, .comparaison-container {
+  margin-bottom: 40px;
+}
+
+.comparaison-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+}
+
+.carte-graphique {
+  width: 45%; /* Ajuster selon les besoins */
+  border: 1px solid #0275d8; /* Bordure pour séparer visuellement les cartes */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px; /* Bords arrondis */
+}
+
+.carte-graphique img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* Ajoutez d'autres styles et animations selon les besoins */

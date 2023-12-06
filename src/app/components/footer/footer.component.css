@@ -1,0 +1,35 @@
+/* Style de base pour le footer */
+.footer-container {
+    background-color: #4b0082;
+    color: white;
+    display: flex;
+    justify-content: center; /* Centrer les éléments */
+    padding: 20px;
+    text-align: left;
+}
+
+.footer-section {
+    margin: 0 10px; /* Ajoute un peu d'espace entre les sections */
+}
+/* Liens dans le footer */
+.footer-container a {
+    color: #add8e6; /* Bleu clair pour les liens */
+    text-decoration: none; /* Pas de soulignement pour les liens */
+    margin: 0 10px;
+}
+
+.footer-container a:hover {
+    color: #0275d8; /* Bleu plus vif au survol */
+    text-decoration: underline; /* Souligner au survol */
+}
+
+/* Texte et autres éléments */
+.footer-text {
+    margin: 10px 0;
+}
+
+.footer-icon {
+    /* Styles pour les icônes ou logos si nécessaire */
+}
+
+/* Ajouter plus de styles personnalisés ici */
