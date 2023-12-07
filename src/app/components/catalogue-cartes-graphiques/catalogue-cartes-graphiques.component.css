@@ -1,19 +1,125 @@
-.catalogue {
-    text-align: center;
+/* Style de base pour la page du catalogue */
+
+
+.catalogue-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Fond sombre similaire à l'accueil */
+  color: #f0f0f0; /* Texte clair pour contraste */
+  font-family: 'Arial', sans-serif; /* Police moderne */
+}
+
+/* Titres dans le catalogue */
+.catalogue-container h1 {
+  color: #0275d8; /* Bleu électrique pour les titres */
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in;
+}
+
+/* Style des filtres */
+.filtres {
+  margin-bottom: 20px;
+}
+
+/* Style des cartes de produits */
+.carte-graphique {
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px;
+  width: calc(33% - 40px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Animation au survol des cartes */
+.carte-graphique:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+}
+
+/* Images des produits */
+.carte-graphique img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Informations des produits */
+.carte-graphique h3, .carte-graphique p {
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+/* Boutons dans les cartes de produits */
+.carte-graphique button {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.carte-graphique button:hover {
+  background-color: #ff4081;
+}
+
+/* Effet "fade-in" pour l'ensemble de la page */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive design pour les cartes de produits */
+@media (max-width: 768px) {
+  .carte-graphique {
+    width: calc(50% - 40px);
   }
-  
-  .liste-cartes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .carte-graphique {
+    width: calc(100% - 40px);
   }
-  
-  .carte-item {
-    margin: 10px;
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 200px;
-  }
-  
-  /* Ajoutez plus de styles selon vos préférences */
-  
+}
+
+/* Style pour la section des filtres */
+.filtres {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style pour les sélecteurs de filtres */
+.filtres select {
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 5px;
+  border: 1px solid #0275d8; /* Couleur bleue pour la bordure */
+  background-color: #333; /* Couleur de fond sombre */
+  color: #f0f0f0; /* Couleur de texte claire */
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style pour les options des sélecteurs */
+.filtres select option {
+  background-color: #1a1a1a; /* Fond sombre pour les options */
+  color: white; /* Texte blanc pour une bonne lisibilité */
+}
+
+/* Style au survol des sélecteurs */
+.filtres select:hover {
+  border-color: #ff4081; /* Changement de la couleur de la bordure au survol */
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Style pour le focus sur les sélecteurs */
+.filtres select:focus {
+  outline: none;
+  box-shadow: 0 0 5px #0275d8; /* Ombre bleue autour du sélecteur */
+}

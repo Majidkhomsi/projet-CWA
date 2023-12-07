@@ -11,6 +11,9 @@ import { PanierComponent } from './components/panier/panier.component';
 import { CommandeComponent } from './components/commande/commande.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+import { FormsModule } from '@angular/forms';
+import { SeConnecterComponent } from './components/se-connecter/se-connecter.component';
+import { SInscrireComponent } from './components/s-inscrire/s-inscrire.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +23,14 @@ import { FooterComponent } from './components/footer/footer.component';
     DetailsCarteGraphiqueComponent,
     PanierComponent,
     CommandeComponent,
-    FooterComponent
+    FooterComponent,
+    SeConnecterComponent,
+    SInscrireComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,54 @@
-<div class="catalogue">
-    <h2>Catalogue des Cartes Graphiques</h2>
-    <div class="liste-cartes">
-      <div *ngFor="let carte of cartesGraphiques" class="carte-item">
-        <h3>{{ carte.nom }}</h3>
-        <p>{{ carte.description }}</p>
-        <p>Prix: {{ carte.prix }}€</p>
-        <!-- Ici, vous pouvez ajouter un élément img pour chaque carte -->
+
+    <div class="catalogue-container">
+      <div class="definition-section">
+        <div class="texte-definition">
+            <h1>Définition de la Carte Graphique</h1>
+            <p>
+                Une carte graphique, également appelée carte vidéo, est un composant informatique essentiel 
+                qui génère les images affichées sur votre écran. Elle convertit les données en signaux compréhensibles 
+                par l'écran, permettant ainsi de jouer à des jeux, de créer du contenu graphique ou d'utiliser des 
+                applications multimédias.
+            </p>
+        </div>
+      <h1>Catalogue des Cartes Graphiques</h1>
+  
+      <!-- Section de filtrage -->
+      <div class="filtres">
+          <select [(ngModel)]="filtreMarque">
+              <option value="">Toutes les marques</option>
+              <option value="NVIDIA">NVIDIA</option>
+              <option value="AMD">AMD</option>
+              <!-- Autres options de marque -->
+          </select>
+
+          <select [(ngModel)]="filtrePrix">
+            <option value="">Tous les prix</option>
+            <option value="budget">Moins de 300€</option>
+            <option value="milieu">300€ - 600€</option>
+            <option value="haut">Plus de 600€</option>
+        </select>
+  
+          <!-- Autres filtres comme le prix, etc. -->
       </div>
-    </div>
+  
+      <!-- Affichage des produits -->
+      <div class="cartes-graphiques">
+          <div class="carte-graphique" *ngFor="let gpu of cartesGraphiquesFiltrees">
+              <img [src]="gpu.image" [alt]="gpu.nom">
+              <h3>{{ gpu.nom }}</h3>
+              <p>Prix: € {{ gpu.prix }}</p>
+              <p>Description: {{ gpu.description }}</p>
+              <div *ngFor="let carte of cartesGraphiquesFiltrees">
+                
+              </div>
+              
+              <button (click)="ajouterAuPanier(gpu)">Ajouter au panier</button>
+          </div>
+      </div>
   </div>
   
+
+
+
+
+

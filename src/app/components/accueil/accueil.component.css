@@ -8,14 +8,28 @@
 }
 /* Style pour la section de bienvenue avec une image en arrière-plan */
 .bienvenue-section {
-  background-image: url('../../../assets/images/GPUGal.jpg');
-  background-size: cover; /* Assure que l'image couvre entièrement la section */
-  background-position: center; /* Centre l'image dans la section */
-  background-repeat: no-repeat; /* Empêche la répétition de l'image */
-  color: white; /* Assurez que le texte reste lisible */
-  padding: 90x 50px; /* Ajustez selon vos besoins */
-  border-radius: 10px; /* Bords arrondis pour un style élégant */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombre légère pour un effet de profondeur */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #0275d8; /* ou toute autre couleur de fond */
+}
+
+.bienvenue-text {
+  width: 60%;
+  color: white;
+}
+
+.bienvenue-image {
+  width: 40%;
+}
+
+.bienvenue-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* Assurez que le texte est lisible sur l'image d'arrière-plan */

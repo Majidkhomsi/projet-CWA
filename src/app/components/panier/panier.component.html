@@ -1,1 +1,27 @@
-<p>panier works!</p>
+<div class="panier-container">
+  <h2>Votre Panier</h2>
+  <div *ngIf="panierService.getPanier().length === 0">Votre panier est vide.</div>
+  <ul>
+    <li *ngFor="let produit of panierService.getPanier()">
+      {{ produit.nom }} - {{ produit.prix | currency }} x {{ produit.quantite }}
+      <ul>
+        
+          
+          <button class="supprimer-btn" (click)="supprimerProduit(produit)">Supprimer</button>
+          <button class="modifier-btn"(click)="modifierQuantite(produit)">Modifier</button>
+          
+      </ul>
+    </li>
+  </ul>
+  <div class="total">
+    Total: {{ panierService.getTotal() | currency }}
+  </div>
+  <div>Nombre total de produits: {{ panierService.getNombreTotalProduits() }}</div>
+ <!-- Bouton Acheter avec affichage du prix total -->
+ <button class="acheter-btn">Acheter - {{ panierService.getTotal() | currency }}</button>
+
+ <!-- Bouton Vider le Panier -->
+ <button class="vider-panier-btn" (click)="viderPanier()">Vider le Panier</button>
+
+
+</div>

@@ -4,14 +4,14 @@
   </div>
   <nav class="main-nav">
     <ul>
-      <li><a href="/">Accueil</a></li>
-      <li><a href="../catalogue-cartes-graphiques/catalogue-cartes-graphiques.component.html">Catalogue</a></li>
-      <li><a href="/panier">Panier</a></li>
+      <li><a routerLink="/">Accueil</a></li>
+      <li><a routerLink="/catalogue">Catalogue</a></li>
+      <li><a routerLink="/panier">Panier</a></li>
       <li class="compte" (click)="toggleAccountMenu($event)">
         <a href="javascript:void(0)">Compte</a>
         <ul class="compte-menu" *ngIf="showAccountMenu">
-          <li><a href="/compte/connexion">Se connecter</a></li>
-          <li><a href="/compte/inscription">S'inscrire</a></li>
+          <li><a routerLink="/connexion">Se connecter</a></li>
+          <li><a routerLink="inscription">S'inscrire</a></li>
         </ul>
       </li>
     </ul>

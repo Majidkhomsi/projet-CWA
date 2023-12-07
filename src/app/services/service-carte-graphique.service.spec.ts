@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { ServiceCarteGraphique } from './service-carte-graphique.service';
 
-import { ServiceCarteGraphiqueService } from './service-carte-graphique.service';
-
-describe('ServiceCarteGraphiqueService', () => {
-  let service: ServiceCarteGraphiqueService;
+describe('ServiceCarteGraphique', () => {
+  let service: ServiceCarteGraphique;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ServiceCarteGraphiqueService);
+    service = TestBed.inject(ServiceCarteGraphique);
   });
 
   it('should be created', () => {

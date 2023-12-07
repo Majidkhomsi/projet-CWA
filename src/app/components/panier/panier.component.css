@@ -1,12 +1,115 @@
+/* Style général du panier */
 .panier-container {
-    text-align: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Arrière-plan sombre comme dans le catalogue */
+  color: #f0f0f0; /* Texte clair pour un bon contraste */
+  font-family: 'Arial', sans-serif; /* Police moderne */
+  animation: fadeIn 1s ease-in; /* Effet d'apparition */
+}
+
+/* Titre du panier */
+.panier-container h2 {
+  color: #0275d8; /* Bleu électrique pour les titres */
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #0275d8; /* Ombre portée subtile */
+}
+
+/* Liste des articles dans le panier */
+.panier-container ul {
+  list-style: none;
+  padding: 0;
+  text-align: left; /* Alignement du texte pour les listes */
+  margin: auto;
+  max-width: 800px; /* Largeur maximale pour une meilleure lisibilité */
+}
+
+/* Style des éléments de la liste */
+.panier-container li {
+  background-color: #2a2a2a; /* Fond légèrement plus clair pour chaque élément */
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Animation au survol des éléments de la liste */
+.panier-container li:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+}
+
+/* Style des boutons dans le panier */
+.panier-container button {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin: 10px; /* Ajout d'une marge autour des boutons */
+}
+/* Changement de couleur des boutons au survol */
+.panier-container .btn:hover {
+  background-color: #ff4081;
+}
+
+/* Conteneur pour les informations du produit */
+.panier-container .info-produit {
+  flex-grow: 1; /* Prend l'espace disponible */
+
+}
+
+/* Style pour le total du panier */
+.panier-container .total {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Animation "fade-in" */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Style responsive pour les petits écrans */
+@media (max-width: 768px) {
+  .panier-container ul {
+    max-width: 100%;
   }
-  
-  .panier-item {
-    margin: 10px;
-    border: 1px solid #ddd;
-    padding: 15px;
+
+  .panier-container .info-produit {
+    padding-right: 60px; /* Espace réduit pour les petits écrans */
   }
-  
-  /* Ajoutez plus de styles selon vos préférences */
-  
+}
+/* Style pour le bouton Acheter */
+.panier-container .acheter-btn {
+  background-color: #4CAF50; /* Vert pour Acheter */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px; /* Espace entre les boutons et les autres éléments du panier */
+}
+
+/* Style pour le bouton Vider le Panier */
+.panier-container .vider-panier-btn {
+  background-color: #f44336; /* Rouge pour Vider le Panier */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+  margin-left: 10px; /* Petite marge entre les boutons Acheter et Vider le Panier */
+}

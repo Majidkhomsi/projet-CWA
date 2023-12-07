@@ -1,0 +1,100 @@
+/* Style pour le conteneur de la page Se Connecter */
+body, html {
+  height: 100%; /* Permet au fond noir de s'étendre sur toute la hauteur */
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Fond noir pour tout le corps de la page */
+  color: #f0f0f0; /* Couleur du texte pour une meilleure visibilité sur fond noir */
+  font-family: 'Arial', sans-serif; /* Police par défaut */
+}
+
+
+
+.auth-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Conserver le fond noir */
+  color: #f0f0f0; /* Conserver la couleur du texte */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  width: 100%; /* Élargir la largeur du conteneur */
+  max-width: 600px; /* Vous pouvez ajuster ceci selon la largeur maximale souhaitée */
+}
+
+/* Style pour les titres dans les conteneurs d'authentification */
+.auth-container h2 {
+  color: #0275d8;
+  margin-bottom: 20px;
+}
+
+/* Style pour les formulaires dans les conteneurs d'authentification */
+.auth-container form {
+  /* Ajoutez ici des styles spécifiques pour votre formulaire si nécessaire */
+}
+
+/* Style pour les groupes de formulaires */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Style pour les labels des formulaires */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style pour les champs de saisie des formulaires */
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #0275d8;
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+/* Style pour les champs de saisie lorsqu'ils sont focalisés */
+.form-group input:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 5px #ff4081;
+}
+
+/* Style pour les boutons */
+.button-style {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Style pour les boutons lorsqu'ils sont survolés */
+.button-style:hover {
+  background-color: #ff4081;
+}
+
+/* Style pour les liens de mot de passe oublié */
+.forgot-password {
+  margin-top: 15px;
+}
+
+.forgot-password a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+.forgot-password a:hover {
+  color: #ff4081;
+  text-decoration: underline;
+}
+
+/* Style global pour le corps de la page */
+body {
+  background-color: #1a1a1a !important; /* Fond noir pour tout le corps de la page */
+  color: #f0f0f0; /* Couleur du texte pour une meilleure visibilité sur fond noir */
+  font-family: 'Arial', sans-serif; /* Police par défaut */
+}
