@@ -18,10 +18,40 @@
   </div>
   <div>Nombre total de produits: {{ panierService.getNombreTotalProduits() }}</div>
  <!-- Bouton Acheter avec affichage du prix total -->
- <button class="acheter-btn">Acheter - {{ panierService.getTotal() | currency }}</button>
+<!-- Ajoutez une variable pour suivre l'état du message d'erreur -->
+<div *ngIf="panierService.getTotal() === 0; else modal">
+  <p class="message-erreur">Le panier est vide. Impossible d'acheter.</p>
+</div>
 
+<ng-template #modal>
+  <!-- Fenêtre modale d'achat -->
+  <!-- Insérez ici le contenu de la fenêtre modale d'achat -->
+</ng-template>
+
+<button class="acheter-btn" (click)="panierService.getTotal() === 0 ? false : ouvrirModal()">Acheter - {{ panierService.getTotal() | currency }}</button>
  <!-- Bouton Vider le Panier -->
  <button class="vider-panier-btn" (click)="viderPanier()">Vider le Panier</button>
 
 
+
+
+<!-- Fenêtre modale pour le paiement -->
+<div class="modal" *ngIf="modalIsOpen">
+  <div class="modal-content">
+    <!-- Formulaire de paiement -->
+    <form (submit)="effectuerPaiement()">
+      <!-- Champs pour les informations de paiement -->
+      <input type="text" [(ngModel)]="informationsPaiement.nom" placeholder="Nom sur la carte" required>
+      <input type="text" [(ngModel)]="informationsPaiement.numeroCarte" placeholder="Numéro de carte"   >
+      <input type="text" [(ngModel)]="informationsPaiement.moisExpiration" placeholder="Mois d'expiration" required maxlength="2" >
+
+      <input type="text" [(ngModel)]="informationsPaiement.anneeExpiration" placeholder="Année d'expiration" required maxlength="4"  >
+
+      <input type="password" [(ngModel)]="informationsPaiement.codeSecurite" placeholder="Code de sécurité" required maxlength="3">
+
+
+      <!-- Bouton Valider le paiement -->
+      <button type="submit" (click)="validerPaiement()" >Valider le paiement</button>
+    </form>
+  </div>
 </div>
