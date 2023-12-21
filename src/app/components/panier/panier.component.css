@@ -113,3 +113,142 @@
   margin-top: 20px;
   margin-left: 10px; /* Petite marge entre les boutons Acheter et Vider le Panier */
 }
+/* Style pour les éléments du formulaire de paiement */
+.panier-container form {
+  text-align: left; /* Alignement du texte à gauche */
+  background-color: #f0f0f0; /* Arrière-plan gris clair */
+  padding: 10px; /* Espacement intérieur réduit */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+  margin-top: 20px; /* Espacement supérieur */
+  max-width: 400px; /* Largeur maximale réduite */
+  margin-left: auto; /* Centrage horizontal */
+  margin-right: auto; /* Centrage horizontal */
+}
+
+
+/* Style pour les étiquettes des champs de formulaire */
+.panier-container form label {
+  display: block; /* Affichage en bloc */
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 5px; /* Espacement inférieur */
+}
+
+/* Style pour les champs de formulaire */
+.panier-container form input,
+.panier-container form select {
+  width: 100%; /* Largeur à 100% du conteneur */
+  padding: 5px; /* Espacement intérieur réduit */
+  margin-bottom: 5px; /* Espacement inférieur réduit */
+  border: 1px solid #ccc; /* Bordure grise */
+  border-radius: 5px; /* Coins arrondis */
+  font-size: 0.9em; /* Taille de police légèrement plus petite */
+}
+
+/* Style pour le message d'erreur du formulaire */
+.panier-container form .message-erreur {
+  color: #f00; /* Texte rouge en cas d'erreur */
+  font-size: 0.9em; /* Taille de police légèrement plus petite */
+  margin-top: 5px; /* Espacement supérieur */
+}
+
+/* Style pour le bouton de validation du paiement */
+.panier-container form button[type="submit"] {
+  background-color: #0275d8; /* Fond bleu */
+  color: #fff; /* Texte blanc */
+  padding: 10px 20px; /* Espacement intérieur */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointeur au survol */
+}
+
+/* Style pour le bouton de vidage du panier */
+.panier-container form .vider-panier-btn {
+  background-color: #f44336; /* Fond rouge */
+  color: #fff; /* Texte blanc */
+  padding: 10px 20px; /* Espacement intérieur */
+  border: none; /* Pas de bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointeur au survol */
+  margin-left: 10px; /* Espacement à gauche */
+}
+/* confirmation-paiement.component.css */
+
+.confirmation-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0; /* Arrière-plan gris clair */
+  color: #333; /* Texte sombre pour un bon contraste */
+  font-family: 'Arial', sans-serif; /* Police moderne */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px; /* Largeur maximale pour le contenu */
+  margin: 0 auto; /* Centrer le contenu horizontalement */
+  margin-top: 20px; /* Espace supérieur */
+}
+
+.confirmation-container h2 {
+  color: #0275d8; /* Bleu électrique pour les titres */
+  margin-bottom: 20px;
+}
+
+.details {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.details p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.details span {
+  font-weight: bold;
+  color: #0275d8; /* Bleu électrique pour les détails importants */
+}
+
+.retour-btn {
+  background-color: #0275d8; /* Bleu électrique pour le bouton Retour */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.retour-btn:hover {
+  background-color: #ff4081; /* Changement de couleur au survol */
+}
+/* Style pour la page de confirmation de paiement */
+.confirmation-paiement {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+  animation: fadeIn 1s ease-in;
+  margin-top: 20px; /* Espacement par rapport aux autres éléments */
+}
+
+.confirmation-paiement h3 {
+  color: #4CAF50; /* Couleur verte pour le titre */
+  text-shadow: 0 0 10px #4CAF50;
+  margin-bottom: 20px;
+}
+
+.confirmation-paiement p {
+  margin-bottom: 10px;
+}
+
+/* Style pour le formulaire de paiement */
+.confirmation-paiement form {
+  display: none; /* Masque le formulaire de paiement par défaut */
+}
+
+/* Animation "fade-in" */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

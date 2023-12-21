@@ -5,11 +5,8 @@
     <li *ngFor="let produit of panierService.getPanier()">
       {{ produit.nom }} - {{ produit.prix | currency }} x {{ produit.quantite }}
       <ul>
-        
-          
-          <button class="supprimer-btn" (click)="supprimerProduit(produit)">Supprimer</button>
-          <button class="modifier-btn"(click)="modifierQuantite(produit)">Modifier</button>
-          
+        <button class="supprimer-btn" (click)="supprimerProduit(produit)">Supprimer</button>
+        <button class="modifier-btn" (click)="modifierQuantite(produit)">Modifier</button>
       </ul>
     </li>
   </ul>
@@ -17,41 +14,70 @@
     Total: {{ panierService.getTotal() | currency }}
   </div>
   <div>Nombre total de produits: {{ panierService.getNombreTotalProduits() }}</div>
- <!-- Bouton Acheter avec affichage du prix total -->
-<!-- Ajoutez une variable pour suivre l'état du message d'erreur -->
-<div *ngIf="panierService.getTotal() === 0; else modal">
-  <p class="message-erreur">Le panier est vide. Impossible d'acheter.</p>
-</div>
 
-<ng-template #modal>
-  <!-- Fenêtre modale d'achat -->
-  <!-- Insérez ici le contenu de la fenêtre modale d'achat -->
-</ng-template>
-
-<button class="acheter-btn" (click)="panierService.getTotal() === 0 ? false : ouvrirModal()">Acheter - {{ panierService.getTotal() | currency }}</button>
- <!-- Bouton Vider le Panier -->
- <button class="vider-panier-btn" (click)="viderPanier()">Vider le Panier</button>
-
-
-
-
-<!-- Fenêtre modale pour le paiement -->
-<div class="modal" *ngIf="modalIsOpen">
-  <div class="modal-content">
-    <!-- Formulaire de paiement -->
-    <form (submit)="effectuerPaiement()">
-      <!-- Champs pour les informations de paiement -->
-      <input type="text" [(ngModel)]="informationsPaiement.nom" placeholder="Nom sur la carte" required>
-      <input type="text" [(ngModel)]="informationsPaiement.numeroCarte" placeholder="Numéro de carte"   >
-      <input type="text" [(ngModel)]="informationsPaiement.moisExpiration" placeholder="Mois d'expiration" required maxlength="2" >
-
-      <input type="text" [(ngModel)]="informationsPaiement.anneeExpiration" placeholder="Année d'expiration" required maxlength="4"  >
-
-      <input type="password" [(ngModel)]="informationsPaiement.codeSecurite" placeholder="Code de sécurité" required maxlength="3">
-
-
-      <!-- Bouton Valider le paiement -->
-      <button type="submit" (click)="validerPaiement()" >Valider le paiement</button>
-    </form>
+  <div *ngIf="panierService.getTotal() === 0; else modal">
+    <p class="message-erreur">Le panier est vide. Impossible d'acheter.</p>
   </div>
+
+  <ng-template #modal>
+    <!-- Fenêtre modale d'achat -->
+    <button class="acheter-btn" (click)="afficherPaiement = true">Acheter - {{ panierService.getTotal() | currency }}</button>
+    <button class="vider-panier-btn" (click)="viderPanier()">Vider le Panier</button>
+    <!-- Section de paiement -->
+    <div *ngIf="afficherPaiement">
+      <form [formGroup]="formulairePaiement" (submit)="validerPaiement()">
+        <input type="text" formControlName="nom" placeholder="Nom sur la carte" required (keypress)="onKeyPressLetters($event)">
+        <input
+          type="text"
+          formControlName="numeroCarte"
+          placeholder="Numéro de carte (14 chiffres)"
+          (input)="onNumeroCarteInput($event)"
+        >
+        <div
+        *ngIf="
+          formulairePaiement.get('numeroCarte')?.hasError('pattern') ||
+          formulairePaiement.get('numeroCarte')?.hasError('invalidCardNumberLength')
+        "
+        class="message-erreur"
+      >
+        Le numéro de carte doit contenir exactement 14 chiffres.
+      </div>
+        <select formControlName="moisExpiration" required>
+          <option value="01">Janvier</option>
+          <option value="02">Février</option>
+          <option value="03">Mars</option>
+          <option value="04">Avril</option>
+          <option value="05">Mai</option>
+          <option value="06">Juin</option>
+          <option value="07">Juillet</option>
+          <option value="08">Août</option>
+          <option value="09">Septembre</option>
+          <option value="10">Octobre</option>
+          <option value="11">Novembre</option>
+          <option value="12">Décembre</option>
+        </select>
+        <input type="number" formControlName="anneeExpiration" placeholder="Année d'expiration" min="2023" max="2030" step="1" required>
+        <input type="password" formControlName="codeSecurite" placeholder="Code de sécurité" required maxlength="3" (keypress)="onKeyPress($event)">
+        <button type="submit">Valider le paiement</button>
+      </form>
+    </div>
+    <!-- Fin de la section de paiement -->
+  </ng-template>
 </div>
+<!-- Affiche le message de confirmation si le paiement est accepté -->
+<div *ngIf="afficherConfirmation" class="confirmation-paiement" >
+  <h3>Merci pour votre achat !</h3>
+  <p *ngFor="let produit of panierService.getPanier()"> Votre produit : 
+  {{ produit.nom }}  x {{ produit.quantite }}</p>
+  <p *ngFor="let produit of panierService.getPanier()"> Prix Payé: 
+    {{ produit.prix | currency }}</p>
+  
+  <p>Les détails de votre achat ont été envoyés à votre adresse e-mail.</p>
+  
+</div>
+
+<!-- Formulaire de paiement (affiché uniquement si le paiement n'est pas encore accepté) -->
+<form *ngIf="!afficherConfirmation" [formGroup]="formulairePaiement" (submit)="validerPaiement()">
+  <!-- ... (restez inchangé) -->
+</form>
+

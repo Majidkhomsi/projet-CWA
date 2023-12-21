@@ -1,116 +1,132 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PanierService } from '../../services/panier.service';
-import { CarteGraphique } from '../../models/Carte-Graphique'; // Assurez-vous que ce chemin est correct
+// Importez la classe Router depuis '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
-  styleUrls: ['./panier.component.css']
+  styleUrls: ['./panier.component.css'],
 })
 export class PanierComponent implements OnInit {
-  panier: CarteGraphique[] = []; // Déclaration de la propriété 'panier'
-  modalIsOpen = false;
+  formulairePaiement: FormGroup;
   informationsPaiement: any = {};
-  constructor(public panierService: PanierService) { }
+  modalIsOpen: boolean = false;
+  panier: any = [];
+  afficherPaiement: boolean = false; // Variable pour afficher/masquer la section de paiement
+  paiementAccepte: boolean = false;
+  produitAchete: any = {};
+
+  afficherConfirmation: boolean = false;
+  constructor(public panierService: PanierService, private fb: FormBuilder, private router: Router) {
+    this.formulairePaiement = this.fb.group({
+      nom: ['', Validators.required],
+      numeroCarte: [
+        '',
+        [
+          Validators.required,
+          this.validateCardNumber,
+        ],
+      ],
+      moisExpiration: ['', Validators.required],
+      anneeExpiration: [
+        '',
+        [Validators.required, Validators.min(2023), Validators.max(2030)],
+      ],
+      codeSecurite: ['', [Validators.required, Validators.maxLength(3)]],
+    });
+  }
 
   ngOnInit(): void {
     this.mettreAJourPanier();
   }
-  viderPanier(): void {
-    this.panierService.viderPanier(); // Appelle la nouvelle méthode pour vider le panier
-    this.mettreAJourPanier(); // Met à jour l'affichage du panier dans le composant
-    this.modalIsOpen = false;
-  }  
-  private mettreAJourPanier(): void {
-    this.panier = this.panierService.getPanier(); // Mise à jour du panier
+
+  validateCardNumber(control: any): { [key: string]: boolean } | null {
+    const cardNumber = control.value;
+    if (!/^[0-9]{14}$/.test(cardNumber)) {
+      return { invalidCardNumber: true };
+    }
+    return null;
   }
 
-  supprimerProduit(produit: CarteGraphique): void {
-    if (produit.nom) {
-      this.panierService.supprimerDuPanier(produit.nom);
-      this.mettreAJourPanier(); // Mise à jour du panier après suppression
+  onNumeroCarteInput(event: any): void {
+    const input = event.target as HTMLInputElement;
+    const value = input.value.replace(/[^0-9]/g, '').slice(0, 14); // Remove non-numeric characters and limit to 14 digits
+    input.value = value;
+    this.formulairePaiement.get('numeroCarte')?.setValue(value);
+  }
+
+  validerPaiement(): void {
+    if (this.formulairePaiement.valid) {
+      // Implémentez ici la logique de paiement
+
+      // Réinitialisez les informations de paiement après le paiement
+      this.informationsPaiement = {};
+
+      // Vous pouvez également fermer la fenêtre modale ici si nécessaire
+      this.modalIsOpen = false;
+
+      // Définissez afficherConfirmation à vrai pour afficher la page de confirmation
+      this.afficherConfirmation = true;
+
+      // Redirigez l'utilisateur vers la page de confirmation de paiement (si nécessaire)
+      this.router.navigateByUrl('/confirmation-paiement');
+    } else {
+      alert('Veuillez remplir tous les champs de paiement correctement.');
     }
   }
 
-  modifierQuantite(produit: CarteGraphique): void {
+  ouvrirModal(): void {
+    this.modalIsOpen = true;
+  }
+
+  viderPanier(): void {
+    this.panierService.viderPanier();
+    this.mettreAJourPanier();
+    this.modalIsOpen = false;
+    this.afficherPaiement = false; // Cacher la section de paiement lorsque le panier est vidé
+  }
+
+  private mettreAJourPanier(): void {
+    this.panier = this.panierService.getPanier();
+  }
+
+  supprimerProduit(produit: any): void {
+    if (produit.nom) {
+      this.panierService.supprimerDuPanier(produit.nom);
+      this.mettreAJourPanier();
+    }
+  }
+
+  modifierQuantite(produit: any): void {
     const quantiteActuelle = produit.quantite ?? 0;
     if (produit.nom) {
       const nouvelleQuantite = prompt("Entrez la nouvelle quantité pour " + produit.nom, quantiteActuelle.toString());
       if (nouvelleQuantite !== null) {
         this.panierService.modifierQuantite(produit.nom, Number(nouvelleQuantite));
-        this.mettreAJourPanier(); // Mise à jour du panier après modification
+        this.mettreAJourPanier();
       }
     }
-    
   }
-  ouvrirModal(): void {
-    this.modalIsOpen = true;
-  }
-  
-  effectuerPaiement(): void {
-    // Implémentez la logique pour effectuer le paiement ici en utilisant les informations de paiement
-    // Une fois le paiement effectué, vous pouvez réinitialiser les informations de paiement et fermer la fenêtre modale
-    this.informationsPaiement = {};
-    this.modalIsOpen = false;
 
-  }
-  envoyerEmailConfirmation(): void {
-    // Créez un objet d'email avec les informations nécessaires
-    const email = {
-      destinataire: this.informationsPaiement.email, // Adresse email du client
-      sujet: "Confirmation de commande",
-      contenu: `
-        Merci pour votre achat sur GPUGalaxy !
-  
-        Détails de la commande :
-        - Montant total : ${this.panierService.getTotal()} EUR
-        - Produits commandés : ${this.panierService.getPanier().map(produit => produit.nom).join(", ")}
-  
-        La livraison sera effectuée à l'adresse suivante :
-        ${this.informationsPaiement.adresseLivraison}
-  
-        Merci de votre confiance et à bientôt !
-      `,
-    };
-  
-    // Ici, vous devrez utiliser un service d'envoi d'emails pour envoyer cet email au client.
-    // Assurez-vous d'utiliser les paramètres de configuration appropriés pour le service d'envoi d'emails que vous utilisez.
-    // Par exemple, vous pourriez utiliser un service comme Nodemailer pour Node.js.
-  
-    // Après avoir envoyé l'email, vous pouvez afficher un message de confirmation supplémentaire à l'utilisateur si nécessaire.
-    alert("Un email de confirmation a été envoyé à votre adresse.");
-  
-    // Réinitialisez les informations de paiement ou effectuez d'autres actions nécessaires
-    this.reinitialiserInformationsPaiement();
-  }
-  reinitialiserInformationsPaiement(): void {
-    // Réinitialisez les informations de paiement en les vidant
-    this.informationsPaiement = {
-      nom: "",
-      numeroCarte: "",
-      moisExpiration: "",
-      anneeExpiration: "",
-      codeSecurite: "",
-      email: "",
-      adresseLivraison: "",
-    };
-  }
-  
-  validerPaiement(): void {
-    // Vérification des champs de paiement
-    if (this.informationsPaiement.nom && this.informationsPaiement.numeroCarte && this.informationsPaiement.moisExpiration && this.informationsPaiement.anneeExpiration && this.informationsPaiement.codeSecurite) {
-      // Les champs sont corrects, affichez un message de félicitation
-      alert("Félicitations ! Votre paiement a été validé. Vous recevrez un email de confirmation avec les détails de la livraison.");
-      
-      // Ensuite, vous pouvez envoyer un email de confirmation au client
-      this.envoyerEmailConfirmation();
-  
-      // Réinitialisez les informations de paiement ou faites d'autres actions nécessaires
-      this.reinitialiserInformationsPaiement();
-    } else {
-      // Affichez un message d'erreur si les champs ne sont pas corrects
-      alert("Veuillez remplir tous les champs de paiement correctement.");
+  onKeyPress(event: KeyboardEvent): boolean {
+    const pattern = /[0-9]/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+      return false;
     }
+    return true;
   }
-  
+
+  onKeyPressLetters(event: KeyboardEvent): boolean {
+    const pattern = /^[a-zA-Z\s-]+$/;
+    const inputChar = String.fromCharCode(event.charCode);
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
 }
