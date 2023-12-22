@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms'; // Importez ReactiveFormsModule
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'; // Importez ReactiveFormsModule et FormsModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CatalogueCartesGraphiquesComponent } from './components/catalogue-cartes-graphiques/catalogue-cartes-graphiques.component';
@@ -13,7 +13,8 @@ import { CommandeComponent } from './components/commande/commande.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SeConnecterComponent } from './components/se-connecter/se-connecter.component';
 import { SInscrireComponent } from './components/s-inscrire/s-inscrire.component';
-import { FormsModule } from '@angular/forms'; // Importez FormsModule
+import { SuivieCommandeComponent } from './components/suivie-commande/suivie-commande.component';
+
 
 @NgModule({
   declarations: [
@@ -26,16 +27,17 @@ import { FormsModule } from '@angular/forms'; // Importez FormsModule
     CommandeComponent,
     FooterComponent,
     SeConnecterComponent,
-    SInscrireComponent
+    SInscrireComponent,
+    SuivieCommandeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule, // Assurez-vous que ReactiveFormsModule est importé ici
+    FormsModule, // Importez FormsModule ici
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+ // Ajoutez CommandeService dans les providers
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

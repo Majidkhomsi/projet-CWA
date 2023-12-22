@@ -8,6 +8,7 @@ import { PanierComponent } from './components/panier/panier.component';
 import { CommandeComponent } from './components/commande/commande.component';
 import { SeConnecterComponent } from './components/se-connecter/se-connecter.component';
 import { SInscrireComponent } from './components/s-inscrire/s-inscrire.component';
+import { SuivieCommandeComponent } from './components/suivie-commande/suivie-commande.component';
 // Continuez à importer d'autres composants au besoin
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'commande', component: CommandeComponent }, // Route pour la commande
   { path: 'inscription', component: SInscrireComponent },
   { path: 'connexion', component: SeConnecterComponent},
+  { path: 'suivi', component:SuivieCommandeComponent},
   // Ajoutez d'autres routes au besoin
 ];
 

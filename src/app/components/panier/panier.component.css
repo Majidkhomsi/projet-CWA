@@ -233,7 +233,7 @@
 }
 
 .confirmation-paiement h3 {
-  color: #4CAF50; /* Couleur verte pour le titre */
+  color: #000000; /* Couleur verte pour le titre */
   text-shadow: 0 0 10px #4CAF50;
   margin-bottom: 20px;
 }
@@ -251,4 +251,79 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+/* Style pour le formulaire de livraison */
+.formulaire-livraison {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a; /* Fond noir */
+  color: #000000; /* Couleur du texte */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Style pour les titres dans le formulaire de livraison */
+.formulaire-livraison h2 {
+  color: #0275d8;
+  margin-bottom: 20px;
+}
+
+/* Style pour les groupes de formulaires dans le formulaire de livraison */
+.form-group-livraison {
+  margin-bottom: 15px;
+}
+
+/* Style pour les labels des formulaires dans le formulaire de livraison */
+.form-group-livraison label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000; /* Couleur du texte pour les labels */
+}
+
+/* Style pour les champs de saisie des formulaires dans le formulaire de livraison */
+.form-group-livraison input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #0275d8;
+  background-color: #333;
+  color: #000000;
+}
+
+/* Style pour les champs de saisie lorsqu'ils sont focalisés dans le formulaire de livraison */
+.form-group-livraison input:focus {
+  outline: none;
+  border-color: #ff4081;
+  box-shadow: 0 0 5px #ff4081;
+}
+
+/* Style pour les boutons dans le formulaire de livraison */
+.button-style-livraison {
+  background-color: #0275d8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px; /* Espace supérieur */
+}
+
+/* Style pour les boutons lorsqu'ils sont survolés dans le formulaire de livraison */
+.button-style-livraison:hover {
+  background-color: #ff4081;
+}
+
+/* Style global pour le formulaire de livraison */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
 }

@@ -27,6 +27,7 @@ export class HeaderComponent {
 
   deconnexion() {
     this.authService.deconnecter();
+    
   }
   
   @HostListener('document:click', ['$event'])

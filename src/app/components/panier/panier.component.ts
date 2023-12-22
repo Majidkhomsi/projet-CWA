@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { PanierService } from '../../services/panier.service';
-// Importez la classe Router depuis '@angular/router'
 import { Router } from '@angular/router';
-
+import { AuthService } from 'src/app/services/authentification.service';
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
@@ -11,33 +11,35 @@ import { Router } from '@angular/router';
 })
 export class PanierComponent implements OnInit {
   formulairePaiement: FormGroup;
+  formulaireLivraison: FormGroup;
   informationsPaiement: any = {};
   modalIsOpen: boolean = false;
   panier: any = [];
-  afficherPaiement: boolean = false; // Variable pour afficher/masquer la section de paiement
+  afficherPaiement: boolean = false;
+  afficherAdresse: boolean = false;
   paiementAccepte: boolean = false;
-  produitAchete: any = {};
-
   afficherConfirmation: boolean = false;
-  constructor(public panierService: PanierService, private fb: FormBuilder, private router: Router) {
+
+  constructor(public panierService: PanierService, 
+    private fb: FormBuilder,
+    private authService: AuthService, 
+    private http: HttpClient, 
+    private router: Router
+  ) {
     this.formulairePaiement = this.fb.group({
       nom: ['', Validators.required],
-      numeroCarte: [
-        '',
-        [
-          Validators.required,
-          this.validateCardNumber,
-        ],
-      ],
+      numeroCarte: ['', [Validators.required, this.validateCardNumber]],
       moisExpiration: ['', Validators.required],
-      anneeExpiration: [
-        '',
-        [Validators.required, Validators.min(2023), Validators.max(2030)],
-      ],
+      anneeExpiration: ['', [Validators.required, Validators.min(2023), Validators.max(2030)]],
       codeSecurite: ['', [Validators.required, Validators.maxLength(3)]],
     });
-  }
 
+    this.formulaireLivraison = this.fb.group({
+      nomDestinataire: ['', Validators.required],
+      adresse: ['', Validators.required],
+      ville: ['', Validators.required],
+    });
+  }
   ngOnInit(): void {
     this.mettreAJourPanier();
   }
@@ -58,20 +60,15 @@ export class PanierComponent implements OnInit {
   }
 
   validerPaiement(): void {
-    if (this.formulairePaiement.valid) {
-      // Implémentez ici la logique de paiement
-
-      // Réinitialisez les informations de paiement après le paiement
-      this.informationsPaiement = {};
-
-      // Vous pouvez également fermer la fenêtre modale ici si nécessaire
-      this.modalIsOpen = false;
-
-      // Définissez afficherConfirmation à vrai pour afficher la page de confirmation
-      this.afficherConfirmation = true;
-
-      // Redirigez l'utilisateur vers la page de confirmation de paiement (si nécessaire)
-      this.router.navigateByUrl('/confirmation-paiement');
+    if (this.formulairePaiement.valid && this.formulaireLivraison.valid) {
+      const commande = {
+        utilisateurId:this.authService.getUserId(),
+        produits: this.panierService.getPanier(),
+        informationsLivraison: this.formulaireLivraison.value,
+        total: this.calculerTotal() // Calculez le total à partir des produits dans le panier
+      };
+  
+      this.envoyerCommande(commande);
     } else {
       alert('Veuillez remplir tous les champs de paiement correctement.');
     }
@@ -82,11 +79,33 @@ export class PanierComponent implements OnInit {
   }
 
   viderPanier(): void {
-    this.panierService.viderPanier();
-    this.mettreAJourPanier();
-    this.modalIsOpen = false;
-    this.afficherPaiement = false; // Cacher la section de paiement lorsque le panier est vidé
+    if (this.formulairePaiement.valid && this.formulaireLivraison.valid) {
+      const commande = {
+        produits: this.panierService.getPanier(),
+        informationsLivraison: this.formulaireLivraison.value,
+        total: this.panierService.getTotal()
+      };
+
+      this.envoyerCommandeAuServeur(commande);
+    } else {
+      alert('Veuillez remplir tous les champs correctement.');
+    }
   }
+
+  private envoyerCommandeAuServeur(commande: any): void {
+    const urlApi = 'http://localhost:3000/commandes'; // Remplacez par l'URL de votre API backend
+    this.http.post(urlApi, commande).subscribe(
+      response => {
+        console.log('Commande enregistrée avec succès', response);
+        this.afficherConfirmation = true;
+        this.router.navigateByUrl('/suivi');
+      },
+      error => {
+        console.error('Erreur lors de l\'enregistrement de la commande', error);
+      }
+    );
+  }
+
 
   private mettreAJourPanier(): void {
     this.panier = this.panierService.getPanier();
@@ -129,4 +148,20 @@ export class PanierComponent implements OnInit {
     }
     return true;
   }
+
+ 
+  
+  private calculerTotal(): number {
+    return this.panier.reduce((acc:number , produit:any) => acc + produit.prix * produit.quantite, 0);
+  }
+  
+  private envoyerCommande(commande: any): void {
+    this.http.post('http://localhost:3000/commandes', commande)
+      .subscribe(response => {
+        console.log("Commande enregistrée", response);
+        this.router.navigate(['/confirmation-commande']);
+        // Autres traitements nécessaires après la validation de la commande
+      });
+  }
+  
 }
