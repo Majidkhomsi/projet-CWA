@@ -3,7 +3,7 @@ import { HostListener } from '@angular/core';
 import { AuthService } from '../../services/authentification.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-
+import { PanierService } from '../../services/panier.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +15,7 @@ export class HeaderComponent {
   private unsubscribe$ = new Subject<void>();
 
   estConnecte: boolean= true ;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private panierService: PanierService) { }
 
   ngOnInit(): void {
     this.authService.estConnecte$
@@ -26,8 +26,8 @@ export class HeaderComponent {
   }
 
   deconnexion() {
+    this.panierService.viderPanier();
     this.authService.deconnecter();
-    
   }
   
   @HostListener('document:click', ['$event'])

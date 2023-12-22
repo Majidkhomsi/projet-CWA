@@ -32,8 +32,7 @@ export class SInscrireComponent implements OnInit {
         }
       );
     } else {
-      // Gérer les erreurs de formulaire ou les mots de passe non correspondants
-      console.log('Le formulaire n\'est pas valide ou les mots de passe ne correspondent pas');
+      alert('Le formulaire n\'est pas valide ou les mots de passe ne correspondent pas');
     }
   }
 }

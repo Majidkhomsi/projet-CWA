@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   getUserId(): number {
-    return this.userId;
+    return Number(localStorage.getItem('userId'));
   }
 
   getToken(): string | null {
@@ -25,27 +25,33 @@ export class AuthService {
   }
 
   connecter(email: string, password: string) {
-    const requestBody = {
-      email: email,
-      password: password
-    };
-
-    
-    return this.http.post(this.url, requestBody).subscribe(
+    // URL de l'API pour vérifier l'utilisateur
+    const urlVerification = `${this.url}?email=${email}&password=${password}`;
+  
+    this.http.get(urlVerification).subscribe(
       (response: any) => {
-        // Traitement en cas de succès
-        console.log('Réponse de connexion:', response);
-        this.estConnecteSource.next(true);
+        const users = response as any[];
+        if (users.length) {
+          // Utilisateur trouvé, procéder à la connexion
+          console.log('Utilisateur connecté:', users[0]);
+          this.estConnecteSource.next(true);
+          localStorage.setItem('userId', users[0].id);
+        } else {
+          // Utilisateur non trouvé, afficher un message d'erreur
+          alert('Identifiants incorrects');
+        }
       },
       (error) => {
-        // Gestion des erreurs
-        console.error('Erreur lors de la connexion:', error);
+        // Gestion des erreurs de la requête
+        console.error('Erreur lors de la vérification de lutilisateur:', error);
       }
     );
   }
+  
 
   deconnecter() {
     this.estConnecteSource.next(false);
+    localStorage.removeItem('userId');
     this.router.navigate(['']);
   }
 }

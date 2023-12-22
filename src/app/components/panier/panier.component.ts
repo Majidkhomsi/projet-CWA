@@ -46,7 +46,7 @@ export class PanierComponent implements OnInit {
 
   validateCardNumber(control: any): { [key: string]: boolean } | null {
     const cardNumber = control.value;
-    if (!/^[0-9]{14}$/.test(cardNumber)) {
+    if (!/^[0-9]{16}$/.test(cardNumber)) {
       return { invalidCardNumber: true };
     }
     return null;
@@ -54,7 +54,7 @@ export class PanierComponent implements OnInit {
 
   onNumeroCarteInput(event: any): void {
     const input = event.target as HTMLInputElement;
-    const value = input.value.replace(/[^0-9]/g, '').slice(0, 14); // Remove non-numeric characters and limit to 14 digits
+    const value = input.value.replace(/[^0-9]/g, '').slice(0, 16);
     input.value = value;
     this.formulairePaiement.get('numeroCarte')?.setValue(value);
   }
@@ -68,7 +68,8 @@ export class PanierComponent implements OnInit {
         total: this.calculerTotal() // Calculez le total à partir des produits dans le panier
       };
   
-      this.envoyerCommande(commande);
+      this.envoyerCommandeAuServeur(commande);
+      this.viderPanier();
     } else {
       alert('Veuillez remplir tous les champs de paiement correctement.');
     }
@@ -79,22 +80,15 @@ export class PanierComponent implements OnInit {
   }
 
   viderPanier(): void {
-    if (this.formulairePaiement.valid && this.formulaireLivraison.valid) {
-      const commande = {
-        produits: this.panierService.getPanier(),
-        informationsLivraison: this.formulaireLivraison.value,
-        total: this.panierService.getTotal()
-      };
-
-      this.envoyerCommandeAuServeur(commande);
-    } else {
-      alert('Veuillez remplir tous les champs correctement.');
-    }
+    this.panierService.viderPanier(); // Appel à la méthode viderPanier du service
+    this.mettreAJourPanier();
   }
 
   private envoyerCommandeAuServeur(commande: any): void {
-    const urlApi = 'http://localhost:3000/commandes'; // Remplacez par l'URL de votre API backend
-    this.http.post(urlApi, commande).subscribe(
+    const utilisateurId = this.authService.getUserId();
+    const commandeAvecUtilisateurId = { ...commande, utilisateurId: utilisateurId };
+    const urlApi = 'http://localhost:3000/commandes';
+    this.http.post(urlApi,  commandeAvecUtilisateurId).subscribe(
       response => {
         console.log('Commande enregistrée avec succès', response);
         this.afficherConfirmation = true;
@@ -155,13 +149,6 @@ export class PanierComponent implements OnInit {
     return this.panier.reduce((acc:number , produit:any) => acc + produit.prix * produit.quantite, 0);
   }
   
-  private envoyerCommande(commande: any): void {
-    this.http.post('http://localhost:3000/commandes', commande)
-      .subscribe(response => {
-        console.log("Commande enregistrée", response);
-        this.router.navigate(['/confirmation-commande']);
-        // Autres traitements nécessaires après la validation de la commande
-      });
-  }
+  
   
 }

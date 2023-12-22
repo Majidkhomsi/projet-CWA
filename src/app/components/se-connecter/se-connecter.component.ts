@@ -18,7 +18,7 @@ export class SeConnecterComponent {
       this.authService.connecter(this.email, this.password);
       this.router.navigate(['']);
     } else {
-      console.log('Veuillez entrer l\'e-mail et le mot de passe');
+      alert('Veuillez entrer l\'e-mail et le mot de passe');
     }
   }
 }

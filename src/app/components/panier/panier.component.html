@@ -49,7 +49,7 @@
         <input
           type="text"
           formControlName="numeroCarte"
-          placeholder="Numéro de carte (14 chiffres)"
+          placeholder="Numéro de carte (16 chiffres)"
           (input)="onNumeroCarteInput($event)"
         >
         <div
@@ -59,7 +59,7 @@
         "
         class="message-erreur"
       >
-        Le numéro de carte doit contenir exactement 14 chiffres.
+        Le numéro de carte doit contenir exactement 16 chiffres.
       </div>
         <select formControlName="moisExpiration" required>
           <option value="01">Janvier</option>

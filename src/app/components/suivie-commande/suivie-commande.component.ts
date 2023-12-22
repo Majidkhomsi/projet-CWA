@@ -27,7 +27,7 @@ export class SuivieCommandeComponent implements OnInit {
         if (data && data.length > 0) {
           this.commandes = data; // S'il y a des commandes, elles seront stockées ici
         } else {
-          console.log('Aucune commande trouvée pour cet utilisateur.');
+          alert('Aucune commande trouvée pour cet utilisateur.');
         }
       },
       (error) => {

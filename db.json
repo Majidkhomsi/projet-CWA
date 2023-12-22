@@ -7,231 +7,16 @@
       "id": 13
     },
     {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 14
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 15
-    },
-    {
-      "email": "rrsfsqfq",
-      "password": "2001",
-      "confirmPassword": "2001",
-      "id": 16
-    },
-    {
-      "email": "rrsfsqfq",
-      "password": "2001",
-      "id": 17
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 18
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 19
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 20
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 21
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 22
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 23
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 24
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 25
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 26
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 27
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 28
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 29
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 30
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 31
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 32
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 33
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 34
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 35
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 36
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 37
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 38
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 39
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 40
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 41
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 42
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 43
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 44
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 45
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 46
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 47
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 48
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "confirmPassword": "123",
-      "id": 49
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 50
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 51
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 52
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 53
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "123",
-      "id": 54
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 55
-    },
-    {
-      "email": "ayoubhajam1999@gmail.com",
-      "password": "123",
-      "id": 56
-    },
-    {
-      "email": "khomsi.majid@gmail.com",
-      "password": "2001",
-      "id": 57
+      "email": "kh",
+      "password": "00",
+      "confirmPassword": "00",
+      "id": 62
     }
   ],
   "cartes_graphiques": [],
   "commandes": [
     {
+      "utilisateurId": 62,
       "produits": [
         {
           "id": 3,
@@ -240,138 +25,19 @@
           "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
           "marque": "NVIDIA",
           "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
+          "quantite": 2
         }
       ],
       "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
+        "nomDestinataire": "Lycee al jabre",
+        "adresse": "11 rue ledru rollin dijon 21000",
+        "ville": "Dijon"
       },
-      "total": 4499.97,
-      "id": 1
+      "total": 2999.98,
+      "id": 14
     },
     {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 2
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 3
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 4
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 5
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 6
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 7
-    },
-    {
+      "utilisateurId": 62,
       "produits": [
         {
           "id": 2,
@@ -380,7 +46,49 @@
           "description": "Offre d'excellentes performances en jeux grâce à son architecture RDNA 2.",
           "marque": "AMD",
           "image": "../../../../../assets/images/RX6800XT.png",
-          "quantite": 3
+          "quantite": 2
+        }
+      ],
+      "informationsLivraison": {
+        "nomDestinataire": "Lycee al jabre",
+        "adresse": "11 rue ledru rollin dijon 21000",
+        "ville": "Dijon"
+      },
+      "total": 1299.98,
+      "id": 15
+    },
+    {
+      "utilisateurId": 62,
+      "produits": [
+        {
+          "id": 2,
+          "nom": "AMD Radeon RX 6800 XT",
+          "prix": 649.99,
+          "description": "Offre d'excellentes performances en jeux grâce à son architecture RDNA 2.",
+          "marque": "AMD",
+          "image": "../../../../../assets/images/RX6800XT.png",
+          "quantite": 1
+        }
+      ],
+      "informationsLivraison": {
+        "nomDestinataire": "Lycee al jabre",
+        "adresse": "11 rue ledru rollin dijon 21000",
+        "ville": "Dijon"
+      },
+      "total": 649.99,
+      "id": 16
+    },
+    {
+      "utilisateurId": 13,
+      "produits": [
+        {
+          "id": 1,
+          "nom": "NVIDIA RTX 3080",
+          "prix": 699.99,
+          "description": "Carte graphique haut de gamme idéale pour le gaming en 4K et le rendu professionnel.",
+          "marque": "NVIDIA",
+          "image": " ../../../../../assets/images/RTX3080.png",
+          "quantite": 2
         }
       ],
       "informationsLivraison": {
@@ -388,10 +96,32 @@
         "adresse": "11 Rue Ledru Rollin",
         "ville": "Dijon - (21000)"
       },
-      "total": 1949.97,
-      "id": 8
+      "total": 1399.98,
+      "id": 17
     },
     {
+      "utilisateurId": 13,
+      "produits": [
+        {
+          "id": 2,
+          "nom": "AMD Radeon RX 6800 XT",
+          "prix": 649.99,
+          "description": "Offre d'excellentes performances en jeux grâce à son architecture RDNA 2.",
+          "marque": "AMD",
+          "image": "../../../../../assets/images/RX6800XT.png",
+          "quantite": 1
+        }
+      ],
+      "informationsLivraison": {
+        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
+        "adresse": "11 Rue Ledru Rollin",
+        "ville": "Dijon - (21000)"
+      },
+      "total": 649.99,
+      "id": 18
+    },
+    {
+      "utilisateurId": 62,
       "produits": [
         {
           "id": 3,
@@ -404,92 +134,12 @@
         }
       ],
       "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
+        "nomDestinataire": "Lycee al jabre",
+        "adresse": "11 rue ledru rollin dijon 21000",
+        "ville": "Dijon"
       },
       "total": 2999.98,
-      "id": 9
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 2
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 2999.98,
-      "id": 10
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 2
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 2999.98,
-      "id": 11
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 5
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "iyoup",
-        "adresse": "grtessileeeee",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 7499.95,
-      "id": 12
-    },
-    {
-      "produits": [
-        {
-          "id": 3,
-          "nom": "NVIDIA RTX 3090",
-          "prix": 1499.99,
-          "description": "La plus puissante des cartes NVIDIA, parfaite pour le gaming extrême et la création 3D.",
-          "marque": "NVIDIA",
-          "image": "../../../../../assets/images/RTX3090.png",
-          "quantite": 3
-        }
-      ],
-      "informationsLivraison": {
-        "nomDestinataire": "ABDELMAJID KHOMSI EL HASSOUNI",
-        "adresse": "11 Rue Ledru Rollin",
-        "ville": "Dijon - (21000)"
-      },
-      "total": 4499.97,
-      "id": 13
+      "id": 19
     }
   ]
 }
