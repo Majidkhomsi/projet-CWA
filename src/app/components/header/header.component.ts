@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { AuthService } from '../../services/authentification.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,7 +12,23 @@ import { HostListener } from '@angular/core';
 })
 export class HeaderComponent {
   public showAccountMenu = false;
+  private unsubscribe$ = new Subject<void>();
 
+  estConnecte: boolean= true ;
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.authService.estConnecte$
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((estConnecte) => {
+        this.estConnecte = estConnecte;
+      });
+  }
+
+  deconnexion() {
+    this.authService.deconnecter();
+  }
+  
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     // Effectuez une assertion de type pour 'target' comme un élément HTML

@@ -1,6 +1,6 @@
 <header>
   <div class="logo-container">
-    <img src=" ../../../../../assets/images/GP_ug_1.png" alt="GPUGalaxy " class="logo">
+    <img src="../../../../../assets/images/GP_ug_1.png" alt="GPUGalaxy" class="logo">
   </div>
   <nav class="main-nav">
     <ul>
@@ -8,11 +8,15 @@
       <li><a routerLink="/catalogue">Catalogue</a></li>
       <li><a routerLink="/panier">Panier</a></li>
       <li class="compte" (click)="toggleAccountMenu($event)">
-        <a href="javascript:void(0)">Compte</a>
-        <ul class="compte-menu" *ngIf="showAccountMenu">
+        <!-- Affichage conditionnel en fonction de l'état de connexion -->
+        <a href="javascript:void(0)" *ngIf="!estConnecte; else compteMenu">Compte</a>
+        <ul class="compte-menu" *ngIf="showAccountMenu && !estConnecte">
           <li><a routerLink="/connexion">Se connecter</a></li>
-          <li><a routerLink="inscription">S'inscrire</a></li>
+          <li><a routerLink="/inscription">S'inscrire</a></li>
         </ul>
+        <ng-template #compteMenu>
+          <a href="javascript:void(0)" (click)="deconnexion()" >Déconnexion</a>
+        </ng-template>
       </li>
     </ul>
   </nav>

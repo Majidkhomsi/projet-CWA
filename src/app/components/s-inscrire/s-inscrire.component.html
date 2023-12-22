@@ -1,25 +1,24 @@
 <div class="auth-container">
-    <h2>S'inscrire</h2>
-    <form>
-      <!-- Champs du formulaire -->
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="password">Mot de passe:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-  
-      <div class="form-group">
-        <label for="confirmPassword">Confirmer le mot de passe:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-      </div>
-  
-      <button type="submit" class="button-style">S'inscrire</button>
-    </form>
-  
-    <p>Déjà un compte ? <a routerLink="/connexion">Se connecter</a></p>
-  </div>
-  
+  <h2>S'inscrire</h2>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <!-- Champs du formulaire -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" name="password" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirmer le mot de passe:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" ngModel required>
+    </div>
+
+    <button type="submit" class="button-style">S'inscrire</button>
+  </form>
+
+  <p>Déjà un compte ? <a routerLink="/connexion">Se connecter</a></p>
+</div>

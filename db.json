@@ -1,0 +1,25 @@
+{
+  "utilisateurs": [
+    {
+      "email": "khomsi.majid@gmail.com",
+      "password": "2001",
+      "confirmPassword": "2001",
+      "id": 13
+    }
+  ],
+  "cartes_graphiques": [
+    {
+      "id": 1,
+      "marque": "Nvidia",
+      "modele": "RTX 3080",
+      "prix": 699.99
+    }
+  ],
+  "commandes": [
+    {
+      "id": 1,
+      "id_utilisateur": 1,
+      "total": 699.99
+    }
+  ]
+}
