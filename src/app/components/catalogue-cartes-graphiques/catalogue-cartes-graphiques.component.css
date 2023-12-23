@@ -69,13 +69,13 @@
   background-color: #ff4081;
 }
 
-/* Effet "fade-in" pour l'ensemble de la page */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Responsive design pour les cartes de produits */
+
 @media (max-width: 768px) {
   .carte-graphique {
     width: calc(50% - 40px);
@@ -94,32 +94,31 @@
   margin-bottom: 20px;
 }
 
-/* Style pour les sélecteurs de filtres */
+
 .filtres select {
   padding: 10px;
   margin: 0 10px;
   border-radius: 5px;
-  border: 1px solid #0275d8; /* Couleur bleue pour la bordure */
-  background-color: #333; /* Couleur de fond sombre */
-  color: #f0f0f0; /* Couleur de texte claire */
+  border: 1px solid #0275d8; 
+  background-color: #333; 
+  color: #f0f0f0; 
   cursor: pointer;
   font-family: 'Arial', sans-serif;
 }
 
-/* Style pour les options des sélecteurs */
+
 .filtres select option {
-  background-color: #1a1a1a; /* Fond sombre pour les options */
-  color: white; /* Texte blanc pour une bonne lisibilité */
+  background-color: #1a1a1a; 
+  color: white; 
 }
 
-/* Style au survol des sélecteurs */
 .filtres select:hover {
-  border-color: #ff4081; /* Changement de la couleur de la bordure au survol */
+  border-color: #ff4081; 
   transition: border-color 0.3s ease-in-out;
 }
 
-/* Style pour le focus sur les sélecteurs */
+
 .filtres select:focus {
   outline: none;
-  box-shadow: 0 0 5px #0275d8; /* Ombre bleue autour du sélecteur */
+  box-shadow: 0 0 5px #0275d8; 
 }
