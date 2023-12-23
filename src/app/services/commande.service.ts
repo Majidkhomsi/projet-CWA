@@ -25,14 +25,16 @@ export class CommandeService {
     const token = this.authService.getToken(); // Supposons que vous ayez une méthode pour obtenir le jeton d'authentification
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.get<any[]>(`http://localhost:3000/commandes?utilisateurId=${utilisateurId}`, { headers: headers }).pipe(
-      map(commandes => commandes)/*(commandes) => {
+    return this.http.get<any[]>(`http://localhost:3000/commandes?utilisateurId=${utilisateurId}`, { headers: headers })
+    .pipe(
+      map(commandes => {
         return commandes.map(commande => ({
           ...commande,
           statut: this.statutsLivraison[Math.floor(Math.random() * this.statutsLivraison.length)]
         }));
-      })*/
+      })
     );
+  
   }   
   // Exemple de méthode pour obtenir une commande par son numéro
   getCommande(numero: string): any {
