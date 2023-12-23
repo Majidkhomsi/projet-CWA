@@ -12,7 +12,7 @@ export class DetailsCarteGraphiqueComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Initialisation du composant
+    
   }
 
 }
