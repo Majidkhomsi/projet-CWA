@@ -4,7 +4,7 @@ export class CarteGraphique {
   prix?: number ;
   description: string | undefined;
   marque: string | undefined;
-  image: string | undefined; // Assurez-vous que cette propriété correspond à vos données
+  image: string | undefined; 
   quantite: number = 1;
 
   constructor(init?: Partial<CarteGraphique>) {
