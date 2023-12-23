@@ -35,7 +35,7 @@ import { SuivieCommandeComponent } from './components/suivie-commande/suivie-com
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule, // Importez FormsModule ici
+    FormsModule, 
   ],
  
   bootstrap: [AppComponent],
