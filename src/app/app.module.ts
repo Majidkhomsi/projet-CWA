@@ -37,7 +37,7 @@ import { SuivieCommandeComponent } from './components/suivie-commande/suivie-com
     HttpClientModule,
     FormsModule, // Importez FormsModule ici
   ],
- // Ajoutez CommandeService dans les providers
+ 
   bootstrap: [AppComponent],
 })
 export class AppModule {}
